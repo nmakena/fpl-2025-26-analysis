@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FPL 2025-26 Season Analysis</title>
+<style>
+  body {
+    font-family: -apple-system, Segoe UI, Roboto, sans-serif;
+    background: #0d1117;
+    color: #e6edf3;
+    margin: 0;
+    padding: 0 20px 60px;
+  }
+  header {
+    text-align: center;
+    padding: 50px 20px 30px;
+  }
+  header h1 {
+    font-size: 2.2rem;
+    margin-bottom: 8px;
+  }
+  header p {
+    color: #8b949e;
+  }
+  .chart-section {
+    max-width: 900px;
+    margin: 0 auto 60px;
+    background: #161b22;
+    border: 1px solid #30363d;
+    border-radius: 12px;
+    padding: 25px;
+  }
+  .chart-section h2 {
+    margin-top: 0;
+    font-size: 1.4rem;
+  }
+  .chart-section p {
+    color: #8b949e;
+    line-height: 1.5;
+  }
+  .chart-section img {
+    width: 100%;
+    border-radius: 8px;
+    margin-top: 15px;
+  }
+  footer {
+    text-align: center;
+    color: #8b949e;
+    padding-top: 20px;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>FPL 2025-26 Season Analysis</h1>
+  <p>A full gameweek by gameweek breakdown of the Premier League Fantasy season</p>
+</header>
+
+<div class="chart-section">
+  <h2>Top 15 Scorers</h2>
+  <p>Haaland edged out Fernandes for the crown, with both crossing 200 points, a rare feat in recent FPL history.</p>
+  <img src="charts/top15_scorers.png" alt="Top 15 scorers chart">
+</div>
+
+<div class="chart-section">
+  <h2>Best Value Picks</h2>
+  <p>Points earned per million spent, filtered to players with meaningful minutes. Cheap, defensive contribution heavy players dominate this list.</p>
+  <img src="charts/value_picks.png" alt="Value picks chart">
+</div>
+
+<div class="chart-section">
+  <h2>Defensive Contribution Leaders</h2>
+  <p>2025-26 introduced Defensive Contribution as a new scoring mechanic. Here are the players who racked up the most raw defensive actions.</p>
+  <img src="charts/defcon_leaders.png" alt="DEFCON leaders chart">
+</div>
+
+<div class="chart-section">
+  <h2>Season Long Points Race</h2>
+  <p>Cumulative points across all 38 gameweeks for the season's top 6 scorers.</p>
+  <img src="charts/season_momentum.png" alt="Season momentum chart">
+</div>
+
+<div class="chart-section">
+  <h2>Consistency vs Explosiveness</h2>
+  <p>Average points per gameweek against variance, revealing steady performers versus boom-or-bust differentials.</p>
+  <img src="charts/consistency_vs_explosiveness.png" alt="Consistency vs explosiveness chart">
+</div>
+
+<footer>
+  <p>Built with Python, pandas, and matplotlib. Data source: FPL historical dataset.</p>
+</footer>
+
+</body>
+</html>

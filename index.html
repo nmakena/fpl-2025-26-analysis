@@ -3,1140 +3,1214 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>GW1–38 | FPL 2025-26 Season Breakdown</title>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<title>GW1–38 | FPL 2025-26 Season Report</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Syne:wght@700;800&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 :root {
-  --bg: #080c08;
-  --surface: #0d140d;
-  --surface2: #111a11;
-  --g1: #22c55e;
-  --g2: #16a34a;
-  --g3: #166534;
-  --dim: #374837;
-  --muted: #4b6b4b;
-  --text: #e8f0e8;
-  --text2: #9aad9a;
-  --amber: #f59e0b;
-  --red: #ef4444;
-  --white: #ffffff;
-  --border: rgba(34,197,94,0.12);
-  --glow: rgba(34,197,94,0.06);
+  --slate:   #2A5F64;
+  --slate2:  #1e4548;
+  --slate3:  #163336;
+  --orange:  #F45140;
+  --orange2: #c73d2e;
+  --berry:   #922764;
+  --berry2:  #6e1d4b;
+  --crimson: #F25F88;
+  --gold:    #FBBD2F;
+  --gold2:   #d49a1a;
+  --bg:      #0e1f20;
+  --bg2:     #0a1718;
+  --bg3:     #071213;
+  --text:    #fdf6ee;
+  --text2:   #c9b8a8;
+  --text3:   #8a7a6a;
+  --border:  rgba(251,189,47,0.12);
+  --border2: rgba(251,189,47,0.06);
 }
 
-* { margin:0; padding:0; box-sizing:border-box; }
-
+* { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 
 body {
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: 'Inter', sans-serif;
   background: var(--bg);
   color: var(--text);
   overflow-x: hidden;
 }
 
-/* FLOATING CHAPTER PILL */
-#chapter-pill {
-  position: fixed;
-  top: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 999;
-  background: rgba(8,12,8,0.85);
-  backdrop-filter: blur(16px);
-  border: 1px solid var(--border);
-  border-radius: 100px;
-  padding: 10px 20px;
+/* MASTHEAD */
+.masthead {
+  background: var(--bg3);
+  border-bottom: 3px solid var(--gold);
+  padding: 0 28px;
+  display: flex;
+  align-items: stretch;
+  height: 58px;
+}
+
+.masthead-brand {
   display: flex;
   align-items: center;
-  gap: 12px;
-  font-family: 'Space Mono', monospace;
-  font-size: 0.65rem;
-  letter-spacing: 2px;
-  color: var(--text2);
-  text-transform: uppercase;
-  white-space: nowrap;
-  transition: all 0.3s;
+  gap: 16px;
+  border-right: 1px solid var(--border);
+  padding-right: 24px;
+  margin-right: 20px;
 }
 
-#chapter-pill .dot {
-  width: 6px; height: 6px;
-  border-radius: 50%;
-  background: var(--g1);
-  animation: pulse 2s infinite;
-}
-
-@keyframes pulse {
-  0%, 100% { opacity: 1; transform: scale(1); }
-  50% { opacity: 0.4; transform: scale(0.8); }
-}
-
-/* MOOD BADGE */
-#mood {
-  position: fixed;
-  bottom: 24px;
-  right: 24px;
-  z-index: 999;
-  width: 52px; height: 52px;
-  border-radius: 50%;
-  background: var(--surface2);
-  border: 1px solid var(--border);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.4rem;
-  transition: all 0.5s;
-  cursor: default;
-}
-
-#mood:hover::after {
-  content: attr(data-tip);
-  position: absolute;
-  right: 60px;
-  bottom: 0;
-  background: var(--surface2);
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  padding: 6px 12px;
-  font-size: 0.65rem;
-  font-family: 'Space Mono', monospace;
-  color: var(--text2);
-  white-space: nowrap;
-}
-
-/* HERO */
-.hero {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  padding: 0 6vw 10vh;
-  position: relative;
-  overflow: hidden;
-}
-
-.hero-bg {
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(ellipse 60% 50% at 80% 20%, rgba(34,197,94,0.06) 0%, transparent 70%),
-    radial-gradient(ellipse 40% 60% at 10% 80%, rgba(34,197,94,0.04) 0%, transparent 60%);
-}
-
-.hero-grid {
-  position: absolute;
-  inset: 0;
-  background-image:
-    linear-gradient(rgba(34,197,94,0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(34,197,94,0.04) 1px, transparent 1px);
-  background-size: 60px 60px;
-  mask-image: radial-gradient(ellipse at center, black 20%, transparent 80%);
-}
-
-.hero-eyebrow {
-  font-family: 'Space Mono', monospace;
-  font-size: 0.65rem;
-  color: var(--g1);
-  letter-spacing: 4px;
-  text-transform: uppercase;
-  margin-bottom: 28px;
-  position: relative;
-  z-index: 1;
-}
-
-.hero-title {
-  font-size: clamp(4rem, 14vw, 11rem);
-  font-weight: 700;
-  line-height: 0.88;
-  letter-spacing: -2px;
-  position: relative;
-  z-index: 1;
-  margin-bottom: 40px;
-}
-
-.hero-title .line1 { color: var(--text); display: block; }
-.hero-title .line2 {
-  color: transparent;
-  -webkit-text-stroke: 1px var(--g1);
-  display: block;
-  opacity: 0.7;
-}
-.hero-title .line3 { color: var(--g1); display: block; }
-
-.hero-meta {
-  display: flex;
-  gap: 40px;
-  flex-wrap: wrap;
-  position: relative;
-  z-index: 1;
-}
-
-.hero-stat {
-  border-left: 2px solid var(--g3);
-  padding-left: 16px;
-}
-
-.hero-stat .v {
-  font-size: 1.8rem;
-  font-weight: 700;
+.masthead-logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 24px;
+  font-weight: 900;
   color: var(--text);
+  letter-spacing: -1px;
   line-height: 1;
-  font-family: 'Space Mono', monospace;
 }
 
-.hero-stat .l {
-  font-size: 0.65rem;
-  color: var(--muted);
+.masthead-logo span { color: var(--gold); }
+
+.masthead-edition {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  color: var(--text3);
+  letter-spacing: 2px;
   text-transform: uppercase;
-  letter-spacing: 2px;
-  margin-top: 4px;
+  line-height: 1.4;
 }
 
-.scroll-hint {
-  position: absolute;
-  bottom: 32px;
-  right: 6vw;
-  font-family: 'Space Mono', monospace;
-  font-size: 0.6rem;
-  color: var(--muted);
-  letter-spacing: 2px;
-  writing-mode: vertical-rl;
+.masthead-nav {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  flex: 1;
+}
+
+.masthead-nav a {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text3);
+  text-decoration: none;
+  padding: 0 14px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  border-bottom: 3px solid transparent;
+  margin-bottom: -3px;
+  transition: all 0.2s;
+  letter-spacing: 0.3px;
+}
+
+.masthead-nav a:hover { color: var(--gold); }
+.masthead-nav a.active { color: var(--gold); border-bottom-color: var(--gold); }
+
+.masthead-tag {
   display: flex;
   align-items: center;
   gap: 8px;
 }
 
-.scroll-hint::after {
-  content: '';
-  width: 1px;
-  height: 60px;
-  background: linear-gradient(to bottom, var(--g1), transparent);
-}
-
-/* REVEAL ANIMATIONS */
-.reveal {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.7s ease, transform 0.7s ease;
-}
-
-.reveal.from-left {
-  transform: translateX(-30px);
-}
-
-.reveal.from-right {
-  transform: translateX(30px);
-}
-
-.reveal.visible {
-  opacity: 1;
-  transform: translate(0);
-}
-
-/* CHAPTER HEADERS */
-.chapter {
-  padding: 120px 6vw 60px;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.chapter-meta {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  margin-bottom: 20px;
-}
-
-.chapter-num {
-  font-family: 'Space Mono', monospace;
-  font-size: 0.6rem;
-  color: var(--g1);
-  letter-spacing: 3px;
+.tag-pill {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  padding: 4px 12px;
+  border-radius: 2px;
+  letter-spacing: 1px;
   text-transform: uppercase;
+  font-weight: 500;
 }
 
-.chapter-line {
-  flex: 1;
-  height: 1px;
-  background: linear-gradient(to right, var(--border), transparent);
-  max-width: 200px;
-}
-
-.chapter-title {
-  font-size: clamp(2.5rem, 6vw, 5rem);
-  font-weight: 700;
-  line-height: 1;
-  letter-spacing: -1px;
-}
-
-.chapter-title .accent { color: var(--g1); }
-
-.chapter-sub {
-  font-size: 1rem;
-  color: var(--text2);
-  max-width: 480px;
-  line-height: 1.7;
-  margin-top: 16px;
-  font-weight: 300;
-}
-
-/* KINETIC NUMBER BLOCKS */
-.kinetic-strip {
-  display: flex;
-  gap: 0;
-  overflow-x: auto;
-  scrollbar-width: none;
-  border-top: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
-  background: var(--surface);
-  margin: 60px 0;
-}
-
-.kinetic-strip::-webkit-scrollbar { display: none; }
-
-.k-item {
-  padding: 32px 48px;
-  border-right: 1px solid var(--border);
-  flex-shrink: 0;
-  min-width: 160px;
-}
-
-.k-item:last-child { border-right: none; }
-
-.k-val {
-  font-family: 'Space Mono', monospace;
-  font-size: 2.8rem;
-  font-weight: 700;
-  color: var(--g1);
-  line-height: 1;
-  display: block;
-}
-
-.k-lbl {
-  font-size: 0.6rem;
-  color: var(--muted);
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  margin-top: 8px;
-  display: block;
-}
-
-/* CHART CONTAINERS */
-.chart-wrap {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 6vw;
-}
-
-.chart-block {
-  margin-bottom: 40px;
-  border: 1px solid var(--border);
-  border-radius: 4px;
-  overflow: hidden;
-  background: var(--surface);
-  transition: border-color 0.3s;
-}
-
-.chart-block:hover { border-color: rgba(34,197,94,0.3); }
-
-.chart-top {
-  padding: 24px 28px 18px;
-  border-bottom: 1px solid var(--border);
-  display: grid;
-  grid-template-columns: 1fr auto;
-  gap: 20px;
-  align-items: start;
-}
-
-.chart-tag {
-  font-family: 'Space Mono', monospace;
-  font-size: 0.55rem;
-  color: var(--g1);
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  margin-bottom: 10px;
-  opacity: 0.8;
-}
-
-.chart-name {
-  font-size: 1.3rem;
-  font-weight: 600;
-  color: var(--text);
-  letter-spacing: -0.3px;
-  margin-bottom: 6px;
-}
-
-.chart-desc {
-  font-size: 0.82rem;
-  color: var(--text2);
-  line-height: 1.6;
-  max-width: 500px;
-  font-weight: 300;
-}
-
-.verdict-pill {
-  font-family: 'Space Mono', monospace;
-  font-size: 0.6rem;
-  padding: 6px 14px;
-  border-radius: 100px;
-  border: 1px solid var(--border);
-  color: var(--g1);
-  background: var(--glow);
-  white-space: nowrap;
-  flex-shrink: 0;
-  align-self: flex-start;
-}
-
-iframe {
-  width: 100%;
-  border: none;
-  display: block;
-  background: var(--surface);
-}
-
-.chart-block img { width: 100%; display: block; }
-
-/* TWO COL */
-.two-col {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 20px;
-  margin-bottom: 40px;
-}
-
-.two-col .chart-block { margin-bottom: 0; }
-
-/* ASYMMETRIC LAYOUT */
-.asym {
-  display: grid;
-  grid-template-columns: 2fr 1fr;
-  gap: 20px;
-  margin-bottom: 40px;
-}
-
-.asym.flip { grid-template-columns: 1fr 2fr; }
-
-.asym .chart-block { margin-bottom: 0; }
-
-/* PAIN SECTION BG */
-.pain-bg {
-  background: radial-gradient(ellipse 80% 60% at 50% 50%, rgba(239,68,68,0.03) 0%, transparent 70%);
-}
-
-/* GLITCH EFFECT */
-.glitch {
-  position: relative;
-}
-
-.glitch::before,
-.glitch::after {
-  content: attr(data-text);
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%;
-  height: 100%;
-  opacity: 0;
-}
-
-.glitch:hover::before {
-  opacity: 0.8;
-  color: var(--red);
-  clip-path: polygon(0 30%, 100% 30%, 100% 50%, 0 50%);
-  transform: translate(-3px);
-  animation: glitch1 0.3s infinite;
-}
-
-.glitch:hover::after {
-  opacity: 0.8;
-  color: var(--g1);
-  clip-path: polygon(0 60%, 100% 60%, 100% 80%, 0 80%);
-  transform: translate(3px);
-  animation: glitch2 0.3s infinite;
-}
-
-@keyframes glitch1 {
-  0%, 100% { transform: translate(-3px); }
-  50% { transform: translate(3px); }
-}
-@keyframes glitch2 {
-  0%, 100% { transform: translate(3px); }
-  50% { transform: translate(-3px); }
-}
+.tag-pill.orange { background: var(--orange); color: #fff; }
+.tag-pill.gold { background: var(--gold); color: var(--bg3); }
 
 /* TICKER */
-.ticker-wrap {
-  background: var(--g1);
-  padding: 10px 0;
+.ticker {
+  background: var(--berry);
+  padding: 9px 0;
   overflow: hidden;
   white-space: nowrap;
+  border-bottom: 1px solid var(--berry2);
 }
 
 .ticker-inner {
   display: inline-flex;
-  animation: ticker 40s linear infinite;
-  gap: 60px;
+  animation: ticker 45s linear infinite;
+  gap: 0;
 }
 
-.ticker-inner span {
-  font-family: 'Space Mono', monospace;
-  font-size: 0.65rem;
-  color: var(--bg);
-  letter-spacing: 1px;
+.ticker-item {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: #fce7f3;
+  padding: 0 28px;
+  border-right: 1px solid var(--berry2);
+  letter-spacing: 0.5px;
+  font-weight: 500;
+}
+
+.ticker-item::before { content: '◆ '; opacity: 0.6; margin-right: 4px; }
+
+@keyframes ticker { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+
+/* HERO */
+.hero {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  min-height: 420px;
+  border-bottom: 1px solid var(--border);
+}
+
+.hero-main {
+  padding: 52px 48px 44px;
+  border-right: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-main::before {
+  content: '2025';
+  position: absolute;
+  top: -20px;
+  right: -10px;
+  font-family: 'Syne', sans-serif;
+  font-size: 200px;
+  font-weight: 800;
+  color: rgba(251,189,47,0.04);
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+}
+
+.hero-kicker {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  color: var(--gold);
+  letter-spacing: 4px;
   text-transform: uppercase;
-  font-weight: 700;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
 }
 
-.ticker-inner span::before {
-  content: '//';
-  margin-right: 10px;
-  opacity: 0.5;
+.hero-kicker::before {
+  content: '';
+  width: 30px;
+  height: 2px;
+  background: var(--orange);
 }
 
-@keyframes ticker {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+.hero-headline {
+  font-family: 'Playfair Display', serif;
+  font-size: 72px;
+  font-weight: 900;
+  line-height: 0.9;
+  letter-spacing: -2px;
+  margin-bottom: 24px;
 }
 
-/* DIVIDER */
-.divider {
-  max-width: 1200px;
-  margin: 80px auto 0;
-  padding: 0 6vw;
+.hero-headline .line-white { color: var(--text); display: block; }
+.hero-headline .line-outline {
+  -webkit-text-stroke: 2px var(--orange);
+  color: transparent;
+  display: block;
+}
+.hero-headline .line-gold { color: var(--gold); display: block; }
+
+.hero-deck {
+  font-size: 15px;
+  color: var(--text2);
+  line-height: 1.7;
+  max-width: 480px;
+  font-weight: 300;
+}
+
+.hero-deck strong { color: var(--crimson); font-weight: 600; }
+
+.hero-sidebar {
+  background: var(--bg2);
+  display: flex;
+  flex-direction: column;
+}
+
+.hero-sidebar-header {
+  background: var(--slate);
+  padding: 16px 24px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  color: rgba(255,255,255,0.7);
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+.stat-block {
+  padding: 20px 24px;
+  border-bottom: 1px solid var(--border2);
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.stat-block:last-child { border-bottom: none; }
+
+.stat-number {
+  font-family: 'Playfair Display', serif;
+  font-size: 44px;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.stat-number.orange { color: var(--orange); }
+.stat-number.gold { color: var(--gold); }
+.stat-number.crimson { color: var(--crimson); }
+.stat-number.slate { color: #5ecfda; }
+
+.stat-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  color: var(--text3);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-top: 4px;
+}
+
+.stat-badge {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  padding: 3px 8px;
+  border-radius: 2px;
+  letter-spacing: 1px;
+}
+
+.stat-badge.new { background: var(--orange); color: #fff; }
+.stat-badge.record { background: var(--gold); color: var(--bg3); }
+
+/* CHAPTER TABS */
+.chapter-tabs {
+  background: var(--bg3);
+  border-bottom: 1px solid var(--border);
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+}
+
+.chapter-tab {
+  padding: 16px 12px 14px;
+  border-right: 1px solid var(--border2);
+  cursor: pointer;
+  transition: background 0.2s;
+  position: relative;
+}
+
+.chapter-tab:last-child { border-right: none; }
+
+.chapter-tab:hover { background: var(--bg2); }
+
+.chapter-tab.active {
+  background: var(--bg2);
+  border-top: 3px solid var(--orange);
+}
+
+.chapter-tab-num {
+  font-family: 'Syne', sans-serif;
+  font-size: 28px;
+  font-weight: 800;
+  line-height: 1;
+  color: var(--border);
+}
+
+.chapter-tab.active .chapter-tab-num { color: var(--orange); }
+
+.chapter-tab-name {
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--text3);
+  margin-top: 4px;
+  letter-spacing: 0.3px;
+}
+
+.chapter-tab.active .chapter-tab-name { color: var(--text); }
+
+.chapter-tab-desc {
+  font-size: 10px;
+  color: var(--text3);
+  margin-top: 2px;
+  font-weight: 300;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.chapter-tab:hover .chapter-tab-desc,
+.chapter-tab.active .chapter-tab-desc { opacity: 1; }
+
+/* CHAPTER CONTENT SECTIONS */
+.chapter-section {
+  display: none;
+  animation: fadeIn 0.3s ease;
+}
+
+.chapter-section.active { display: block; }
+
+@keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+
+/* SECTION LAYOUT */
+.section-layout {
+  display: grid;
+  grid-template-columns: 1fr 280px;
+  min-height: 440px;
+  border-bottom: 1px solid var(--border);
+}
+
+.section-main {
+  padding: 36px 40px;
+  border-right: 1px solid var(--border);
+}
+
+.section-eyebrow {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  color: var(--gold);
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.section-eyebrow::before {
+  content: '';
+  width: 16px;
+  height: 2px;
+  background: var(--gold);
+}
+
+.section-headline {
+  font-family: 'Playfair Display', serif;
+  font-size: 38px;
+  font-weight: 900;
+  line-height: 1.05;
+  color: var(--text);
+  margin-bottom: 10px;
+  letter-spacing: -0.5px;
+}
+
+.section-headline em {
+  font-style: italic;
+  color: var(--crimson);
+}
+
+.section-deck {
+  font-size: 14px;
+  color: var(--text2);
+  line-height: 1.7;
+  max-width: 500px;
+  font-weight: 300;
+  margin-bottom: 24px;
+}
+
+.verdict-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  padding: 5px 12px;
+  border-radius: 2px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  font-weight: 500;
+}
+
+.verdict-tag.orange { background: rgba(244,81,64,0.15); color: var(--orange); border: 1px solid rgba(244,81,64,0.3); }
+.verdict-tag.gold { background: rgba(251,189,47,0.12); color: var(--gold); border: 1px solid rgba(251,189,47,0.25); }
+.verdict-tag.crimson { background: rgba(242,95,136,0.12); color: var(--crimson); border: 1px solid rgba(242,95,136,0.25); }
+.verdict-tag.slate { background: rgba(42,95,100,0.2); color: #5ecfda; border: 1px solid rgba(42,95,100,0.4); }
+.verdict-tag.berry { background: rgba(146,39,100,0.2); color: var(--crimson); border: 1px solid rgba(146,39,100,0.4); }
+
+/* CHART IFRAME CONTAINERS */
+.chart-frame {
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  overflow: hidden;
+  background: var(--bg2);
+}
+
+.chart-frame iframe {
+  width: 100%;
+  border: none;
+  display: block;
+  background: var(--bg2);
+}
+
+.chart-frame img {
+  width: 100%;
+  display: block;
+}
+
+.chart-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  color: var(--text3);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 8px 12px;
+  background: var(--bg3);
+  border-top: 1px solid var(--border2);
+}
+
+/* TWO COL GRID */
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.three-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 16px;
+  margin-top: 16px;
+}
+
+/* SIDEBAR */
+.section-sidebar {
+  background: var(--bg2);
+  padding: 24px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.sidebar-section-head {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  color: var(--text3);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--border2);
+}
+
+.insight-item {
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border2);
+}
+
+.insight-item:last-child { border-bottom: none; }
+
+.insight-cat {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 8px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-bottom: 5px;
+  font-weight: 500;
+}
+
+.insight-cat.orange { color: var(--orange); }
+.insight-cat.gold { color: var(--gold); }
+.insight-cat.crimson { color: var(--crimson); }
+.insight-cat.slate { color: #5ecfda; }
+.insight-cat.berry { color: #e879b4; }
+
+.insight-text {
+  font-size: 12px;
+  color: var(--text2);
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+.insight-big {
+  font-family: 'Playfair Display', serif;
+  font-size: 30px;
+  font-weight: 900;
+  margin-top: 4px;
+  line-height: 1;
+}
+
+.insight-big.orange { color: var(--orange); }
+.insight-big.gold { color: var(--gold); }
+.insight-big.crimson { color: var(--crimson); }
+
+/* WIDE CHART (full width below grid) */
+.wide-chart {
+  border-top: 1px solid var(--border);
+  padding: 36px 40px;
+}
+
+/* STAT CARDS ROW */
+.stat-cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border-bottom: 1px solid var(--border);
+}
+
+.stat-card {
+  padding: 24px 28px;
+  border-right: 1px solid var(--border2);
+  position: relative;
+}
+
+.stat-card:last-child { border-right: none; }
+
+.stat-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+}
+
+.stat-card.orange::after { background: var(--orange); }
+.stat-card.gold::after { background: var(--gold); }
+.stat-card.crimson::after { background: var(--crimson); }
+.stat-card.slate::after { background: var(--slate); }
+
+.stat-card-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 48px;
+  font-weight: 900;
+  line-height: 1;
+  margin-bottom: 6px;
+}
+
+.stat-card-num.orange { color: var(--orange); }
+.stat-card-num.gold { color: var(--gold); }
+.stat-card-num.crimson { color: var(--crimson); }
+.stat-card-num.slate { color: #5ecfda; }
+
+.stat-card-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  color: var(--text3);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.stat-card-sub {
+  font-size: 11px;
+  color: var(--text3);
+  margin-top: 4px;
+  font-weight: 300;
+}
+
+/* DIVIDERS */
+.section-divider {
   display: flex;
   align-items: center;
   gap: 20px;
+  padding: 40px 40px 0;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-.divider::before, .divider::after {
+.section-divider::before,
+.section-divider::after {
   content: '';
   flex: 1;
   height: 1px;
   background: var(--border);
 }
 
-.divider span {
-  font-family: 'Space Mono', monospace;
-  font-size: 0.55rem;
-  color: var(--muted);
+.section-divider span {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  color: var(--text3);
   letter-spacing: 3px;
   text-transform: uppercase;
   white-space: nowrap;
 }
 
 /* FOOTER */
-.footer {
-  max-width: 1200px;
-  margin: 120px auto 0;
-  padding: 48px 6vw;
-  border-top: 1px solid var(--border);
+.site-footer {
+  background: var(--bg3);
+  border-top: 3px solid var(--gold);
+  padding: 40px 48px;
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
   flex-wrap: wrap;
   gap: 24px;
+  margin-top: 60px;
 }
 
 .footer-left {}
 
 .footer-wordmark {
-  font-size: 3rem;
-  font-weight: 700;
+  font-family: 'Playfair Display', serif;
+  font-size: 32px;
+  font-weight: 900;
   color: var(--text);
-  letter-spacing: -2px;
+  letter-spacing: -1px;
   line-height: 1;
 }
 
-.footer-wordmark span { color: var(--g1); }
+.footer-wordmark span { color: var(--gold); }
 
 .footer-tagline {
-  font-size: 0.75rem;
-  color: var(--muted);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  color: var(--text3);
   margin-top: 8px;
-  font-family: 'Space Mono', monospace;
+  letter-spacing: 1px;
 }
 
 .footer-right {
-  font-family: 'Space Mono', monospace;
-  font-size: 0.6rem;
-  color: var(--muted);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  color: var(--text3);
   text-align: right;
-  line-height: 2.2;
+  line-height: 2;
 }
 
-.footer-right a { color: var(--g1); text-decoration: none; }
+.footer-right a { color: var(--gold); text-decoration: none; }
 
-@media (max-width: 768px) {
-  .two-col, .asym, .asym.flip { grid-template-columns: 1fr; }
-  .hero-title { font-size: 4rem; }
-  .chapter-title { font-size: 2.5rem; }
-  .hero-meta { gap: 20px; }
-  .k-item { padding: 24px 32px; min-width: 130px; }
-  #chapter-pill { font-size: 0.55rem; padding: 8px 14px; }
+/* COLOR STRIP */
+.color-strip {
+  display: flex;
+  height: 4px;
+}
+
+.color-strip div { flex: 1; }
+
+/* SCROLL REVEAL */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal.from-left { transform: translateX(-24px); }
+.reveal.from-right { transform: translateX(24px); }
+.reveal.visible { transform: translate(0); }
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .hero { grid-template-columns: 1fr; }
+  .hero-sidebar { display: none; }
+  .section-layout { grid-template-columns: 1fr; }
+  .section-sidebar { display: none; }
+  .two-col { grid-template-columns: 1fr; }
+  .three-col { grid-template-columns: 1fr; }
+  .stat-cards { grid-template-columns: 1fr 1fr; }
+  .chapter-tabs { grid-template-columns: repeat(3, 1fr); }
+  .hero-headline { font-size: 48px; }
+  .masthead-nav { display: none; }
 }
 </style>
 </head>
 <body>
 
-<!-- FLOATING CHAPTER INDICATOR -->
-<div id="chapter-pill">
-  <div class="dot"></div>
-  <span id="chapter-label">GW1-38 · 2025-26</span>
+<div class="color-strip">
+  <div style="background:#2A5F64"></div>
+  <div style="background:#F45140"></div>
+  <div style="background:#922764"></div>
+  <div style="background:#F25F88"></div>
+  <div style="background:#FBBD2F"></div>
 </div>
 
-<!-- MANAGER MOOD -->
-<div id="mood" data-tip="Manager mood">⚽</div>
-
-<!-- HERO -->
-<section class="hero" data-chapter="Intro" data-mood="⚽">
-  <div class="hero-bg"></div>
-  <div class="hero-grid"></div>
-
-  <div class="hero-eyebrow reveal">Season Breakdown · Fantasy Premier League · 2025-26</div>
-
-  <h1 class="hero-title reveal">
-    <span class="line1">The Full</span>
-    <span class="line2">Season</span>
-    <span class="line3">Breakdown.</span>
-  </h1>
-
-  <div class="hero-meta reveal">
-    <div class="hero-stat">
-      <div class="v" data-count="38">38</div>
-      <div class="l">Gameweeks</div>
-    </div>
-    <div class="hero-stat">
-      <div class="v" data-count="239">239</div>
-      <div class="l">Haaland Points</div>
-    </div>
-    <div class="hero-stat">
-      <div class="v">700+</div>
-      <div class="l">Players Tracked</div>
-    </div>
-    <div class="hero-stat">
-      <div class="v" data-count="18">18</div>
-      <div class="l">Visualizations</div>
-    </div>
-    <div class="hero-stat">
-      <div class="v" data-count="29757">29,757</div>
-      <div class="l">Data Points</div>
+<header class="masthead">
+  <div class="masthead-brand">
+    <div>
+      <div class="masthead-logo">GW<span>1—38</span></div>
+      <div class="masthead-edition">FPL 2025-26 · Full Season Report</div>
     </div>
   </div>
+  <nav class="masthead-nav">
+    <a href="#" class="active" onclick="showChapter(0,this)">Scoreboard</a>
+    <a href="#" onclick="showChapter(1,this)">Pain & Regret</a>
+    <a href="#" onclick="showChapter(2,this)">Crowd Moves</a>
+    <a href="#" onclick="showChapter(3,this)">Analytics</a>
+    <a href="#" onclick="showChapter(4,this)">Season Story</a>
+    <a href="#" onclick="showChapter(5,this)">Sunderland</a>
+  </nav>
+  <div class="masthead-tag">
+    <div class="tag-pill orange">2025-26</div>
+    <div class="tag-pill gold">18 charts</div>
+  </div>
+</header>
 
-  <div class="scroll-hint">Scroll</div>
-</section>
-
-<!-- TICKER -->
-<div class="ticker-wrap">
+<div class="ticker">
   <div class="ticker-inner">
-    <span>Haaland 239 pts</span>
-    <span>Fernandes 235 pts</span>
-    <span>GW33 biggest double</span>
-    <span>Guéhi best value pick</span>
-    <span>BGW31 EFL Cup Final</span>
-    <span>DGW36 City + Palace</span>
-    <span>New DC mechanic changed everything</span>
-    <span>29,757 rows of data</span>
-    <span>Season over. The data isn't.</span>
-    <span>Haaland 239 pts</span>
-    <span>Fernandes 235 pts</span>
-    <span>GW33 biggest double</span>
-    <span>Guéhi best value pick</span>
-    <span>BGW31 EFL Cup Final</span>
-    <span>DGW36 City + Palace</span>
-    <span>New DC mechanic changed everything</span>
-    <span>29,757 rows of data</span>
-    <span>Season over. The data isn't.</span>
+    <div class="ticker-item">Haaland 239 pts</div>
+    <div class="ticker-item">Fernandes 235 pts</div>
+    <div class="ticker-item">4 players over 200 — first time ever in FPL</div>
+    <div class="ticker-item">BGW31 EFL Cup Final wrecked squads</div>
+    <div class="ticker-item">DGW36 Man City and Crystal Palace</div>
+    <div class="ticker-item">Guéhi — best value pick of the season</div>
+    <div class="ticker-item">DC mechanic changed the meta entirely</div>
+    <div class="ticker-item">GW33 biggest double of the season — 6 teams</div>
+    <div class="ticker-item">29,757 rows of data</div>
+    <div class="ticker-item">Season over. The data is not.</div>
+    <div class="ticker-item">Haaland 239 pts</div>
+    <div class="ticker-item">Fernandes 235 pts</div>
+    <div class="ticker-item">4 players over 200 — first time ever in FPL</div>
+    <div class="ticker-item">BGW31 EFL Cup Final wrecked squads</div>
+    <div class="ticker-item">DGW36 Man City and Crystal Palace</div>
+    <div class="ticker-item">Guéhi — best value pick of the season</div>
+    <div class="ticker-item">DC mechanic changed the meta entirely</div>
+    <div class="ticker-item">GW33 biggest double of the season — 6 teams</div>
+    <div class="ticker-item">29,757 rows of data</div>
+    <div class="ticker-item">Season over. The data is not.</div>
   </div>
 </div>
 
-<!-- CHAPTER 01: THE SCOREBOARD -->
-<section data-chapter="The Scoreboard" data-mood="🏆">
-  <div class="chapter reveal">
-    <div class="chapter-meta">
-      <span class="chapter-num">Chapter 01</span>
-      <div class="chapter-line"></div>
-    </div>
-    <h2 class="chapter-title glitch" data-text="The Scoreboard">
-      The <span class="accent">Scoreboard</span>
-    </h2>
-    <p class="chapter-sub">Four players broke 200 points. That has never happened in a single FPL season. Haaland and Fernandes were in a universe of their own.</p>
+<section class="hero">
+  <div class="hero-main">
+    <div class="hero-kicker reveal">Full Season Data Breakdown · Fantasy Premier League · 2025-26</div>
+    <h1 class="hero-headline reveal">
+      <span class="line-white">The Full</span>
+      <span class="line-outline">Season</span>
+      <span class="line-gold">Report.</span>
+    </h1>
+    <p class="hero-deck reveal">38 gameweeks. 700+ players. Every number that mattered — from <strong>Haaland's 239 points</strong> to the defenders nobody owned who quietly won the season. Scroll through, hover everything, and feel the pain of your captaincy decisions, quantified.</p>
   </div>
-
-  <div class="chart-wrap">
-    <div class="chart-block reveal">
-      <div class="chart-top">
-        <div>
-          <div class="chart-tag">Final Rankings</div>
-          <div class="chart-name">Top 15 Scorers of the Season</div>
-          <div class="chart-desc">The definitive ranking. Four players cleared 200 points. The gap between first and fifteenth tells you how dominant the top end was this season.</div>
-        </div>
-        <div class="verdict-pill">200+ club: 4 players</div>
+  <aside class="hero-sidebar">
+    <div class="hero-sidebar-header">Season at a glance</div>
+    <div class="stat-block">
+      <div>
+        <div class="stat-number orange">239</div>
+        <div class="stat-label">Haaland total points</div>
       </div>
-      <img src="charts/top15_scorers.png" alt="Top 15 scorers">
+      <div class="stat-badge record">Record</div>
     </div>
-
-    <div class="two-col">
-      <div class="chart-block reveal from-left">
-        <div class="chart-top">
-          <div>
-            <div class="chart-tag">Value</div>
-            <div class="chart-name">Best Value Picks</div>
-            <div class="chart-desc">Points per million. Defenders completely dominated this list. If you paid premium prices for midfielders and forwards this season, the data has opinions.</div>
-          </div>
-          <div class="verdict-pill">Defenders won</div>
-        </div>
-        <img src="charts/value_picks.png" alt="Value picks">
+    <div class="stat-block">
+      <div>
+        <div class="stat-number gold">4</div>
+        <div class="stat-label">Players over 200 pts</div>
       </div>
-
-      <div class="chart-block reveal from-right">
-        <div class="chart-top">
-          <div>
-            <div class="chart-tag">New Mechanic</div>
-            <div class="chart-name">Defensive Contribution Leaders</div>
-            <div class="chart-desc">Brand new for 2025-26. Tackles, blocks, clearances now earn points. These players became FPL assets overnight that nobody saw coming.</div>
-          </div>
-          <div class="verdict-pill">Meta shift</div>
-        </div>
-        <img src="charts/defcon_leaders.png" alt="DC leaders">
+      <div class="stat-badge new">First ever</div>
+    </div>
+    <div class="stat-block">
+      <div>
+        <div class="stat-number crimson">700+</div>
+        <div class="stat-label">Players tracked</div>
       </div>
     </div>
-  </div>
+    <div class="stat-block">
+      <div>
+        <div class="stat-number slate">29,757</div>
+        <div class="stat-label">Data rows analyzed</div>
+      </div>
+    </div>
+    <div class="stat-block">
+      <div>
+        <div class="stat-number gold">18</div>
+        <div class="stat-label">Visualizations</div>
+      </div>
+    </div>
+  </aside>
 </section>
 
-<div class="divider"><span>Pain section begins</span></div>
+<div class="stat-cards reveal">
+  <div class="stat-card orange">
+    <div class="stat-card-num orange">38</div>
+    <div class="stat-card-label">Gameweeks</div>
+    <div class="stat-card-sub">GW1 to GW38 complete</div>
+  </div>
+  <div class="stat-card gold">
+    <div class="stat-card-num gold">239</div>
+    <div class="stat-card-label">Haaland points</div>
+    <div class="stat-card-sub">Season high scorer</div>
+  </div>
+  <div class="stat-card crimson">
+    <div class="stat-card-num crimson">46</div>
+    <div class="stat-card-label">Stats per player</div>
+    <div class="stat-card-sub">Per gameweek tracked</div>
+  </div>
+  <div class="stat-card slate">
+    <div class="stat-card-num slate">18</div>
+    <div class="stat-card-label">Visualizations</div>
+    <div class="stat-card-sub">Interactive and animated</div>
+  </div>
+</div>
+
+<nav class="chapter-tabs" id="chapterTabs">
+  <div class="chapter-tab active" onclick="showChapter(0)">
+    <div class="chapter-tab-num">01</div>
+    <div class="chapter-tab-name">Scoreboard</div>
+    <div class="chapter-tab-desc">Who scored what</div>
+  </div>
+  <div class="chapter-tab" onclick="showChapter(1)">
+    <div class="chapter-tab-num">02</div>
+    <div class="chapter-tab-name">Pain & Regret</div>
+    <div class="chapter-tab-desc">The hurt, quantified</div>
+  </div>
+  <div class="chapter-tab" onclick="showChapter(2)">
+    <div class="chapter-tab-num">03</div>
+    <div class="chapter-tab-name">Crowd Moves</div>
+    <div class="chapter-tab-desc">How managers moved</div>
+  </div>
+  <div class="chapter-tab" onclick="showChapter(3)">
+    <div class="chapter-tab-num">04</div>
+    <div class="chapter-tab-name">Analytics</div>
+    <div class="chapter-tab-desc">Deeper numbers</div>
+  </div>
+  <div class="chapter-tab" onclick="showChapter(4)">
+    <div class="chapter-tab-num">05</div>
+    <div class="chapter-tab-name">Season Story</div>
+    <div class="chapter-tab-desc">GW1 to GW38</div>
+  </div>
+  <div class="chapter-tab" onclick="showChapter(5)">
+    <div class="chapter-tab-num">06</div>
+    <div class="chapter-tab-name">Sunderland</div>
+    <div class="chapter-tab-desc">The return</div>
+  </div>
+</nav>
+
+<!-- CHAPTER 01: SCOREBOARD -->
+<div class="chapter-section active" id="chapter-0">
+  <div class="section-layout">
+    <div class="section-main">
+      <div class="section-eyebrow">Chapter 01 · Final rankings</div>
+      <h2 class="section-headline">The <em>Scoreboard</em></h2>
+      <p class="section-deck">Four players broke 200 points — that has never happened in a single FPL season. Haaland edged Fernandes by four points for the crown. The gap between first and fifteenth tells you everything about how dominant the top end was.</p>
+      <div class="verdict-tag gold">◆ 200+ club: 4 players · first time in FPL history</div>
+      <div class="chart-frame">
+        <img src="charts/top15_scorers.png" alt="Top 15 FPL scorers 2025-26">
+        <div class="chart-label">Top 15 season scorers · total points GW1-38</div>
+      </div>
+      <div class="two-col" style="margin-top:20px;">
+        <div class="chart-frame">
+          <img src="charts/value_picks.png" alt="Best value picks">
+          <div class="chart-label">Best value picks · points per £1m</div>
+        </div>
+        <div class="chart-frame">
+          <img src="charts/defcon_leaders.png" alt="Defensive contribution leaders">
+          <div class="chart-label">DC leaders · new 2025-26 mechanic</div>
+        </div>
+      </div>
+    </div>
+    <aside class="section-sidebar">
+      <div class="sidebar-section-head">Chapter verdicts</div>
+      <div class="insight-item">
+        <div class="insight-cat gold">Season record</div>
+        <div class="insight-text">Four players over 200 pts — a first in FPL history</div>
+        <div class="insight-big gold">4</div>
+      </div>
+      <div class="insight-item">
+        <div class="insight-cat orange">Top scorer</div>
+        <div class="insight-text">Haaland edged out Fernandes by just four points</div>
+        <div class="insight-big orange">239</div>
+      </div>
+      <div class="insight-item">
+        <div class="insight-cat slate">Best value</div>
+        <div class="insight-text">Guéhi delivered the best points-per-million ratio all season</div>
+        <div class="insight-big crimson">179 pts</div>
+      </div>
+      <div class="insight-item">
+        <div class="insight-cat crimson">New mechanic</div>
+        <div class="insight-text">DC rules invented a whole new FPL asset category overnight</div>
+      </div>
+    </aside>
+  </div>
+  <div class="wide-chart">
+    <div class="section-eyebrow">Radar comparison · top 10 players</div>
+    <div class="chart-frame">
+      <iframe src="charts/radar.html" height="580"></iframe>
+      <div class="chart-label">Six-dimension comparison · goals, assists, creativity, threat, influence, bonus · click names to isolate</div>
+    </div>
+  </div>
+</div>
 
 <!-- CHAPTER 02: PAIN AND REGRET -->
-<section class="pain-bg" data-chapter="Pain & Regret" data-mood="😭">
-  <div class="chapter reveal">
-    <div class="chapter-meta">
-      <span class="chapter-num">Chapter 02</span>
-      <div class="chapter-line"></div>
+<div class="chapter-section" id="chapter-1">
+  <div class="section-layout">
+    <div class="section-main">
+      <div class="section-eyebrow">Chapter 02 · The ones that hurt</div>
+      <h2 class="section-headline">Pain <em>& Regret</em></h2>
+      <p class="section-deck">The player you sold the week before they hauled. The captain who blanked. The bench that outscored your starting eleven. This is all of it, broken down and laid out in front of you with nowhere to hide.</p>
+      <div class="verdict-tag orange">◆ Maximum betrayal: sold them, they immediately returned</div>
+      <div class="two-col">
+        <div class="chart-frame">
+          <iframe src="charts/sellout.html" height="460"></iframe>
+          <div class="chart-label">The sellout chart · most sold player each GW vs next-week points</div>
+        </div>
+        <div class="chart-frame">
+          <iframe src="charts/armband_doom.html" height="460"></iframe>
+          <div class="chart-label">Armband of doom · most owned player each GW · green haul, crimson blank</div>
+        </div>
+      </div>
     </div>
-    <h2 class="chapter-title glitch" data-text="Pain & Regret">
-      Pain <span class="accent">&</span> Regret
-    </h2>
-    <p class="chapter-sub">Every FPL manager has these moments. The player you sold who immediately hauled. The captain who blanked. The bench that outscored your starting eleven. This is all of it, quantified.</p>
+    <aside class="section-sidebar">
+      <div class="sidebar-section-head">The hurt, numbered</div>
+      <div class="insight-item">
+        <div class="insight-cat orange">Captaincy</div>
+        <div class="insight-text">The most owned player blanked more often than not</div>
+      </div>
+      <div class="insight-item">
+        <div class="insight-cat crimson">Bench rot</div>
+        <div class="insight-text">The season total of points scored by benched players will make you angry</div>
+      </div>
+      <div class="insight-item">
+        <div class="insight-cat gold">Hindsight</div>
+        <div class="insight-text">Haaland as permanent captain all season would have been optimal</div>
+      </div>
+      <div class="insight-item">
+        <div class="insight-cat berry">Sell regret</div>
+        <div class="insight-text">Several of the most sold players delivered huge hauls the following week</div>
+      </div>
+    </aside>
   </div>
-
-  <div class="chart-wrap">
-    <div class="two-col">
-      <div class="chart-block reveal from-left">
-        <div class="chart-top">
-          <div>
-            <div class="chart-tag">Transfers Out</div>
-            <div class="chart-name">The Sellout Chart</div>
-            <div class="chart-desc">Most sold player each gameweek. The colour shows what they scored the very next week. Bright yellow bars are maximum betrayal.</div>
-          </div>
-          <div class="verdict-pill">Classic FPL moment</div>
-        </div>
-        <iframe src="charts/sellout.html" height="480"></iframe>
-      </div>
-
-      <div class="chart-block reveal from-right">
-        <div class="chart-top">
-          <div>
-            <div class="chart-tag">Captaincy</div>
-            <div class="chart-name">Armband of Doom</div>
-            <div class="chart-desc">Most owned player each GW vs actual points scored. Green is a haul. Pink is a blank. Count the pinks before you feel good about anything.</div>
-          </div>
-          <div class="verdict-pill">Trust nobody</div>
-        </div>
-        <iframe src="charts/armband_doom.html" height="480"></iframe>
-      </div>
+  <div class="wide-chart">
+    <div class="section-eyebrow">Captain hindsight machine</div>
+    <div class="chart-frame">
+      <iframe src="charts/captain_hindsight.html" height="580"></iframe>
+      <div class="chart-label">Who to have permanently captained all 38 GWs · yellow line = theoretical perfect</div>
     </div>
-
-    <div class="chart-block reveal">
-      <div class="chart-top">
-        <div>
-          <div class="chart-tag">The Great What If</div>
-          <div class="chart-name">Captain Hindsight Machine</div>
-          <div class="chart-desc">You had one player as permanent captain for all 38 gameweeks, no switches allowed. Who makes you the most? The yellow line is the theoretical perfect score. Nobody got there. The gap between the top bar and that line is the cost of being human.</div>
-        </div>
-        <div class="verdict-pill">Should've just locked in Haaland</div>
-      </div>
-      <iframe src="charts/captain_hindsight.html" height="560"></iframe>
-    </div>
-
-    <div class="chart-block reveal">
-      <div class="chart-top">
-        <div>
-          <div class="chart-tag">Bench Rot</div>
-          <div class="chart-name">Points Left on the Bench</div>
-          <div class="chart-desc">The silent season killer. Every week, players who never left the bench scored points that counted for absolutely nothing. Look at the season total in the annotation and sit with that for a moment.</div>
-        </div>
-        <div class="verdict-pill">Look away</div>
-      </div>
+  </div>
+  <div style="padding: 0 40px 36px;">
+    <div class="chart-frame" style="margin-top:20px;">
       <iframe src="charts/bench_points.html" height="500"></iframe>
+      <div class="chart-label">Points left on the bench · the silent season killer · look at that total</div>
     </div>
-  </div>
-</section>
-
-<div class="divider"><span>How the crowd moved</span></div>
-
-<!-- CHAPTER 03: CROWD BEHAVIOUR -->
-<section data-chapter="Crowd Behaviour" data-mood="🐑">
-  <div class="chapter reveal">
-    <div class="chapter-meta">
-      <span class="chapter-num">Chapter 03</span>
-      <div class="chapter-line"></div>
-    </div>
-    <h2 class="chapter-title glitch" data-text="Crowd Behaviour">
-      Crowd <span class="accent">Behaviour</span>
-    </h2>
-    <p class="chapter-sub">Ten million managers making decisions every week. Here is how they moved, when they panicked, what they trusted, and whether the collective wisdom of the crowd was actually wise.</p>
-  </div>
-
-  <div class="chart-wrap">
-    <div class="chart-block reveal">
-      <div class="chart-top">
-        <div>
-          <div class="chart-tag">Chip Strategy</div>
-          <div class="chart-name">Chip Timing Autopsy</div>
-          <div class="chart-desc">Two sets of chips this season meant eight decisions instead of four. Every chip had to be used in its half or it expired. GW33 Bench Boost and GW36 Triple Captain were the season's biggest moments. Where did millions of managers actually play theirs?</div>
-        </div>
-        <div class="verdict-pill">GW36 TC was everything</div>
-      </div>
-      <iframe src="charts/chip_timing.html" height="560"></iframe>
-    </div>
-
-    <div class="asym reveal">
-      <div class="chart-block">
-        <div class="chart-top">
-          <div>
-            <div class="chart-tag">Transfers</div>
-            <div class="chart-name">The Bandwagon</div>
-            <div class="chart-desc">Most transferred in player each GW vs points they actually returned that week. The yellow line is truth. The purple bars are hope.</div>
-          </div>
-          <div class="verdict-pill">Hope vs reality</div>
-        </div>
-        <iframe src="charts/bandwagon.html" height="480"></iframe>
-      </div>
-
-      <div class="chart-block">
-        <div class="chart-top">
-          <div>
-            <div class="chart-tag">Template</div>
-            <div class="chart-name">The Template Lock</div>
-            <div class="chart-desc">Most selected player per position each week. Watch it crystallise early, then crack under pressure.</div>
-          </div>
-          <div class="verdict-pill">Everyone copies everyone</div>
-        </div>
-        <iframe src="charts/template_evolution.html" height="480"></iframe>
-      </div>
-    </div>
-  </div>
-</section>
-
-<div class="divider"><span>Numbers most managers never see</span></div>
-
-<!-- CHAPTER 04: ADVANCED -->
-<section data-chapter="Advanced Analytics" data-mood="🔬">
-  <div class="chapter reveal">
-    <div class="chapter-meta">
-      <span class="chapter-num">Chapter 04</span>
-      <div class="chapter-line"></div>
-    </div>
-    <h2 class="chapter-title glitch" data-text="Advanced Analytics">
-      Advanced <span class="accent">Analytics</span>
-    </h2>
-    <p class="chapter-sub">The numbers that separate the managers who finished in the top 10k from everyone else. Differentials, efficiency, expected goals, player clusters. This is where rank was actually won and lost.</p>
-  </div>
-
-  <div class="chart-wrap">
-    <div class="chart-block reveal">
-      <div class="chart-top">
-        <div>
-          <div class="chart-tag">Rule Change</div>
-          <div class="chart-name">New Rules, New Winners</div>
-          <div class="chart-desc">The green portion of every bar is points that did not exist in any previous FPL season. The 2025-26 defensive contribution mechanic invented a new category of FPL asset. These are the players it changed completely.</div>
-        </div>
-        <div class="verdict-pill">New season, new meta</div>
-      </div>
-      <iframe src="charts/dc_impact.html" height="600"></iframe>
-    </div>
-
-    <div class="two-col">
-      <div class="chart-block reveal from-left">
-        <div class="chart-top">
-          <div>
-            <div class="chart-tag">Differentials</div>
-            <div class="chart-name">The Hidden Gems</div>
-            <div class="chart-desc">High points, low ownership. The green zone is where mini-league rank was won. These are the players your rivals did not own.</div>
-          </div>
-          <div class="verdict-pill">Own what others don't</div>
-        </div>
-        <iframe src="charts/ownership_vs_performance.html" height="520"></iframe>
-      </div>
-
-      <div class="chart-block reveal from-right">
-        <div class="chart-top">
-          <div>
-            <div class="chart-tag">Efficiency</div>
-            <div class="chart-name">Price vs Output Frontier</div>
-            <div class="chart-desc">Every regular starter plotted by price against total points. Above the dotted line is a steal. Below it, you paid for reputation not output.</div>
-          </div>
-          <div class="verdict-pill">Price means nothing</div>
-        </div>
-        <iframe src="charts/efficiency_frontier.html" height="520"></iframe>
-      </div>
-    </div>
-
-    <div class="two-col">
-      <div class="chart-block reveal from-left">
-        <div class="chart-top">
-          <div>
-            <div class="chart-tag">Expected Goals</div>
-            <div class="chart-name">Lucky vs Unlucky</div>
-            <div class="chart-desc">Above the diagonal line scored more than their chances deserved. Below it, the goalkeeper stole from them. Bubble size is total FPL points.</div>
-          </div>
-          <div class="verdict-pill">Haaland never gets unlucky</div>
-        </div>
-        <iframe src="charts/xg_vs_actual.html" height="520"></iframe>
-      </div>
-
-      <div class="chart-block reveal from-right">
-        <div class="chart-top">
-          <div>
-            <div class="chart-tag">ML Clustering</div>
-            <div class="chart-name">Who Plays Like Who</div>
-            <div class="chart-desc">500+ players grouped by statistical DNA using machine learning. Players sitting near each other in this chart play the same type of game, regardless of team or name.</div>
-          </div>
-          <div class="verdict-pill">Stats never lie</div>
-        </div>
-        <iframe src="charts/clusters.html" height="520"></iframe>
-      </div>
-    </div>
-
-    <div class="chart-block reveal">
-      <div class="chart-top">
-        <div>
-          <div class="chart-tag">Six Dimensions</div>
-          <div class="chart-name">Player Radar Comparison</div>
-          <div class="chart-desc">Goals, assists, creativity, threat, influence, bonus points all at once. Click any player's name in the legend to isolate them. Overlap two players to see exactly where one beats the other.</div>
-        </div>
-        <div class="verdict-pill">Click to compare</div>
-      </div>
-      <iframe src="charts/radar.html" height="580"></iframe>
-    </div>
-  </div>
-</section>
-
-<div class="divider"><span>38 gameweeks in full</span></div>
-
-<!-- CHAPTER 05: THE SEASON -->
-<section data-chapter="The Season Story" data-mood="📅">
-  <div class="chapter reveal">
-    <div class="chapter-meta">
-      <span class="chapter-num">Chapter 05</span>
-      <div class="chapter-line"></div>
-    </div>
-    <h2 class="chapter-title glitch" data-text="The Season Story">
-      The Season <span class="accent">Story</span>
-    </h2>
-    <p class="chapter-sub">From GW1 to GW38, every point, every blank, every double, every haul. The full 38-chapter story of the 2025-26 Premier League fantasy season.</p>
-  </div>
-
-  <div class="chart-wrap">
-    <div class="chart-block reveal">
-      <div class="chart-top">
-        <div>
-          <div class="chart-tag">Animated</div>
-          <div class="chart-name">The Title Race, Week by Week</div>
-          <div class="chart-desc">Press Play and watch 38 gameweeks unfold. Drag the slider to any specific week. See exactly who was leading the season at that moment and when the gaps opened up permanently.</div>
-        </div>
-        <div class="verdict-pill">▶ Press play</div>
-      </div>
-      <iframe src="charts/season_race.html" height="520"></iframe>
-    </div>
-
-    <div class="chart-block reveal">
-      <div class="chart-top">
-        <div>
-          <div class="chart-tag">Full Season View</div>
-          <div class="chart-name">The Season at a Glance</div>
-          <div class="chart-desc">Every gameweek for the top 20 players. One cell per week. Bright means a haul. Dark means blank, injury, or rotation. Hover any cell for the exact number. The pattern of a whole season fits on one screen.</div>
-        </div>
-        <div class="verdict-pill">Hover everything</div>
-      </div>
-      <iframe src="charts/heatmap.html" height="680"></iframe>
-    </div>
-
-    <div class="two-col">
-      <div class="chart-block reveal from-left">
-        <div class="chart-top">
-          <div>
-            <div class="chart-tag">Blank & Double</div>
-            <div class="chart-name">The Massacre Map</div>
-            <div class="chart-desc">The weeks that destroyed rank. BGW34 was the lowest scoring week of the entire season. Those pink spikes are where seasons ended.</div>
-          </div>
-          <div class="verdict-pill">BGW34 was brutal</div>
-        </div>
-        <iframe src="charts/gw_massacre.html" height="480"></iframe>
-      </div>
-
-      <div class="chart-block reveal from-right">
-        <div class="chart-top">
-          <div>
-            <div class="chart-tag">DGW Impact</div>
-            <div class="chart-name">Double vs Blank vs Normal</div>
-            <div class="chart-desc">The average points difference between a double gameweek and a blank week explains everything about why chip timing is the whole game.</div>
-          </div>
-          <div class="verdict-pill">DGW = free points</div>
-        </div>
-        <iframe src="charts/dgw_impact.html" height="480"></iframe>
-      </div>
-    </div>
-
-    <div class="chart-block reveal">
-      <div class="chart-top">
-        <div>
-          <div class="chart-tag">Consistency</div>
-          <div class="chart-name">Reliable vs Explosive</div>
-          <div class="chart-desc">Top right is the dream: consistently high average with high variance, meaning regular returns plus occasional hauls. Where does your favourite sit?</div>
-        </div>
-        <div class="verdict-pill">You want top-right</div>
-      </div>
-      <img src="charts/consistency_vs_explosiveness.png" alt="Consistency">
-    </div>
-  </div>
-</section>
-
-<div class="divider"><span>The promoted club story</span></div>
-
-<!-- CHAPTER 06: SUNDERLAND -->
-<section data-chapter="Sunderland's Return" data-mood="🔴⚪">
-  <div class="chapter reveal">
-    <div class="chapter-meta">
-      <span class="chapter-num">Chapter 06</span>
-      <div class="chapter-line"></div>
-    </div>
-    <h2 class="chapter-title glitch" data-text="Sunderland's Return">
-      Sunderland's <span class="accent">Return</span>
-    </h2>
-    <p class="chapter-sub">Back in the Premier League after years away. Some of their players were budget gold. Others were owned by practically nobody. The data tells the full story of their debut season.</p>
-  </div>
-
-  <div class="chart-wrap">
-    <div class="chart-block reveal">
-      <div class="chart-top">
-        <div>
-          <div class="chart-tag">The Black Cats</div>
-          <div class="chart-name">Who Delivered, Who Disappointed</div>
-          <div class="chart-desc">Every Sunderland player with meaningful minutes, ranked by total FPL points. Colour shows ownership tier: how many managers actually owned them. The gap between the high-point bars and low-ownership colours tells the real differential story.</div>
-        </div>
-        <div class="verdict-pill">Promoted club gems exist</div>
-      </div>
-      <iframe src="charts/sunderland.html" height="660"></iframe>
-    </div>
-  </div>
-</section>
-
-<!-- VERDICT TICKER -->
-<div class="ticker-wrap" style="margin-top: 100px;">
-  <div class="ticker-inner">
-    <span>Haaland captained 22 of 38 GWs by the FPL champion</span>
-    <span>GW34 was the lowest scoring week of the season</span>
-    <span>Defensive contribution changed the meta completely</span>
-    <span>Guéhi delivered 179 pts at under £5.5m</span>
-    <span>GW33 had 6 teams playing twice</span>
-    <span>Four players scored 200+ points for the first time ever</span>
-    <span>BGW31 cost managers who didn't free hit</span>
-    <span>The crowd got the bandwagon wrong more than right</span>
-    <span>Haaland captained 22 of 38 GWs by the FPL champion</span>
-    <span>GW34 was the lowest scoring week of the season</span>
-    <span>Defensive contribution changed the meta completely</span>
-    <span>Guéhi delivered 179 pts at under £5.5m</span>
-    <span>GW33 had 6 teams playing twice</span>
-    <span>Four players scored 200+ points for the first time ever</span>
-    <span>BGW31 cost managers who didn't free hit</span>
-    <span>The crowd got the bandwagon wrong more than right</span>
   </div>
 </div>
 
-<!-- FOOTER -->
-<footer class="footer">
+<!-- CHAPTER 03: CROWD MOVES -->
+<div class="chapter-section" id="chapter-2">
+  <div class="section-layout">
+    <div class="section-main">
+      <div class="section-eyebrow">Chapter 03 · How ten million managers moved</div>
+      <h2 class="section-headline">Crowd <em>Behaviour</em></h2>
+      <p class="section-deck">Ten million managers making decisions every week. Two sets of chips this season — eight decisions instead of four. Here is when they panicked, what they trusted, whether the wisdom of the crowd was actually wise, and whether following the template was ever the right move.</p>
+      <div class="verdict-tag berry">◆ GW36 Triple Captain — the chip that decided seasons</div>
+      <div class="chart-frame">
+        <iframe src="charts/chip_timing.html" height="540"></iframe>
+        <div class="chart-label">Chip timing autopsy · when managers played each chip across all 38 GWs</div>
+      </div>
+    </div>
+    <aside class="section-sidebar">
+      <div class="sidebar-section-head">Crowd verdicts</div>
+      <div class="insight-item">
+        <div class="insight-cat gold">Chips</div>
+        <div class="insight-text">Two sets this season — 8 decisions. First set had to be used before GW19 or expire</div>
+      </div>
+      <div class="insight-item">
+        <div class="insight-cat orange">TC peak</div>
+        <div class="insight-text">GW36 was the biggest Triple Captain moment — Man City and Palace doubling</div>
+      </div>
+      <div class="insight-item">
+        <div class="insight-cat crimson">Bandwagon</div>
+        <div class="insight-text">The most transferred-in player that week often underwhelmed that same week</div>
+      </div>
+      <div class="insight-item">
+        <div class="insight-cat slate">Template</div>
+        <div class="insight-text">The template squad crystallised early and barely changed until December</div>
+      </div>
+    </aside>
+  </div>
+  <div style="padding: 0 40px 36px;">
+    <div class="two-col" style="margin-top: 20px;">
+      <div class="chart-frame">
+        <iframe src="charts/bandwagon.html" height="480"></iframe>
+        <div class="chart-label">Transfer bandwagon tracker · most brought in vs actual points</div>
+      </div>
+      <div class="chart-frame">
+        <iframe src="charts/template_evolution.html" height="480"></iframe>
+        <div class="chart-label">Template evolution · most selected player per position each GW</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CHAPTER 04: ANALYTICS -->
+<div class="chapter-section" id="chapter-3">
+  <div class="section-layout">
+    <div class="section-main">
+      <div class="section-eyebrow">Chapter 04 · Numbers most managers never see</div>
+      <h2 class="section-headline">Advanced <em>Analytics</em></h2>
+      <p class="section-deck">The numbers that separate managers who finished in the top 10k from everyone else. Expected goals, efficiency frontiers, player clusters, hidden differentials. This is where rank was actually won and lost.</p>
+      <div class="verdict-tag slate">◆ The green bars = points that didn't exist in previous FPL seasons</div>
+      <div class="chart-frame">
+        <iframe src="charts/dc_impact.html" height="580"></iframe>
+        <div class="chart-label">New rules impact · points earned from the 2025-26 defensive contribution mechanic</div>
+      </div>
+    </div>
+    <aside class="section-sidebar">
+      <div class="sidebar-section-head">Analytical verdicts</div>
+      <div class="insight-item">
+        <div class="insight-cat slate">New rules</div>
+        <div class="insight-text">DC mechanic added significant points to players nobody owned at price</div>
+      </div>
+      <div class="insight-item">
+        <div class="insight-cat gold">xG</div>
+        <div class="insight-text">Several high-owned players massively over or underperformed their expected goals</div>
+      </div>
+      <div class="insight-item">
+        <div class="insight-cat crimson">Differentials</div>
+        <div class="insight-text">Low ownership, high output players are concentrated in a tight zone on the chart</div>
+      </div>
+      <div class="insight-item">
+        <div class="insight-cat orange">Clusters</div>
+        <div class="insight-text">Machine learning groups 500+ players by statistical DNA — who plays like who</div>
+      </div>
+    </aside>
+  </div>
+  <div style="padding: 0 40px;">
+    <div class="two-col" style="margin-top: 20px;">
+      <div class="chart-frame">
+        <iframe src="charts/ownership_vs_performance.html" height="500"></iframe>
+        <div class="chart-label">Hidden gems · high points low ownership · the green zone is where rank was won</div>
+      </div>
+      <div class="chart-frame">
+        <iframe src="charts/efficiency_frontier.html" height="500"></iframe>
+        <div class="chart-label">Price vs output frontier · above dotted line = steal · below = overpriced</div>
+      </div>
+    </div>
+    <div class="two-col" style="margin-top: 16px; margin-bottom: 36px;">
+      <div class="chart-frame">
+        <iframe src="charts/xg_vs_actual.html" height="500"></iframe>
+        <div class="chart-label">xG vs actual goals · lucky vs unlucky · bubble size = FPL points</div>
+      </div>
+      <div class="chart-frame">
+        <iframe src="charts/clusters.html" height="500"></iframe>
+        <div class="chart-label">Player similarity clusters · statistical DNA · who plays like who</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CHAPTER 05: SEASON STORY -->
+<div class="chapter-section" id="chapter-4">
+  <div class="section-layout">
+    <div class="section-main">
+      <div class="section-eyebrow">Chapter 05 · GW1 to GW38 in full</div>
+      <h2 class="section-headline">The Season <em>Story</em></h2>
+      <p class="section-deck">From the opening gameweek to the final whistle of GW38. One blank, one double that decided seasons, an animated title race, and the full heatmap of every haul and every blank across the top 20 players.</p>
+      <div class="verdict-tag crimson">◆ Press Play — watch 38 gameweeks unfold in real time</div>
+      <div class="chart-frame">
+        <iframe src="charts/season_race.html" height="520"></iframe>
+        <div class="chart-label">Season points race · animated · press play or drag the slider to any week</div>
+      </div>
+    </div>
+    <aside class="section-sidebar">
+      <div class="sidebar-section-head">Season timeline</div>
+      <div class="insight-item">
+        <div class="insight-cat gold">DGW26</div>
+        <div class="insight-text">Arsenal and Wolves played twice — first double of the season</div>
+      </div>
+      <div class="insight-item">
+        <div class="insight-cat orange">BGW31</div>
+        <div class="insight-text">EFL Cup Final took Arsenal and Man City out — managers without free hit suffered</div>
+      </div>
+      <div class="insight-item">
+        <div class="insight-cat crimson">DGW33</div>
+        <div class="insight-text">Six teams doubled — biggest scoring week of the season</div>
+      </div>
+      <div class="insight-item">
+        <div class="insight-cat slate">BGW34</div>
+        <div class="insight-text">FA Cup semis — lowest average scoring week of the entire season</div>
+      </div>
+      <div class="insight-item">
+        <div class="insight-cat berry">DGW36</div>
+        <div class="insight-text">Man City and Palace doubled — GW36 Triple Captain was the decisive chip</div>
+      </div>
+    </aside>
+  </div>
+  <div style="padding: 0 40px;">
+    <div class="chart-frame" style="margin-top: 20px;">
+      <iframe src="charts/heatmap.html" height="680"></iframe>
+      <div class="chart-label">Season heatmap · every GW for top 20 players · bright = haul · dark = blank · hover for exact number</div>
+    </div>
+    <div class="two-col" style="margin-top: 16px; margin-bottom: 36px;">
+      <div class="chart-frame">
+        <iframe src="charts/gw_massacre.html" height="480"></iframe>
+        <div class="chart-label">GW massacre map · average points with blank and double weeks highlighted</div>
+      </div>
+      <div class="chart-frame">
+        <iframe src="charts/dgw_impact.html" height="480"></iframe>
+        <div class="chart-label">Double vs blank vs normal · the points gap that explains chip timing</div>
+      </div>
+    </div>
+    <div class="chart-frame" style="margin-bottom: 36px;">
+      <img src="charts/consistency_vs_explosiveness.png" alt="Consistency vs explosiveness">
+      <div class="chart-label">Consistency vs explosiveness · steady scorer vs boom-or-bust differential · top right = dream</div>
+    </div>
+  </div>
+</div>
+
+<!-- CHAPTER 06: SUNDERLAND -->
+<div class="chapter-section" id="chapter-5">
+  <div class="section-layout">
+    <div class="section-main">
+      <div class="section-eyebrow">Chapter 06 · The promoted club story</div>
+      <h2 class="section-headline">Sunderland's <em>Return</em></h2>
+      <p class="section-deck">Back in the Premier League after years away. Some of their players were budget gold at bargain prices. Others were owned by practically nobody. The data tells the full story of their debut season — who delivered, who disappointed, and who flew completely under the radar.</p>
+      <div class="verdict-tag orange">◆ Promoted club gems exist — the data proves it</div>
+      <div class="chart-frame">
+        <iframe src="charts/sunderland.html" height="660"></iframe>
+        <div class="chart-label">Sunderland 2025-26 · total FPL points per player · colour = average ownership tier</div>
+      </div>
+    </div>
+    <aside class="section-sidebar">
+      <div class="sidebar-section-head">Sunderland season</div>
+      <div class="insight-item">
+        <div class="insight-cat gold">Budget gems</div>
+        <div class="insight-text">Several Sunderland players delivered strong points at very low cost</div>
+      </div>
+      <div class="insight-item">
+        <div class="insight-cat orange">Ownership</div>
+        <div class="insight-text">Most were owned by fewer than 5% of managers — classic promoted club blindspot</div>
+      </div>
+      <div class="insight-item">
+        <div class="insight-cat crimson">DC bonus</div>
+        <div class="insight-text">Sunderland's defensive style made several players strong DC point earners</div>
+      </div>
+      <div class="insight-item">
+        <div class="insight-cat slate">Lessons</div>
+        <div class="insight-text">The best promoted club asset is almost always someone you haven't heard of</div>
+      </div>
+    </aside>
+  </div>
+</div>
+
+<footer class="site-footer">
   <div class="footer-left">
-    <div class="footer-wordmark">GW1<span>–</span>38</div>
+    <div class="footer-wordmark">GW<span>1—38</span></div>
     <div class="footer-tagline">// FPL 2025-26 Full Season Data Breakdown</div>
   </div>
   <div class="footer-right">
-    Python · pandas · plotly · scikit-learn<br>
+    Built with Python · pandas · plotly · scikit-learn<br>
     Data: <a href="https://github.com/vaastav/Fantasy-Premier-League" target="_blank">vaastav/Fantasy-Premier-League</a><br>
-    38 gameweeks · 29,757 rows · 18 charts<br>
-    Built by <a href="https://github.com/nmakena" target="_blank">nmakena</a>
+    38 gameweeks · 700+ players · 29,757 rows · 18 charts
   </div>
 </footer>
 
 <script>
-// SCROLL REVEAL
+function showChapter(index, navEl) {
+  document.querySelectorAll('.chapter-section').forEach((s, i) => {
+    s.classList.toggle('active', i === index);
+  });
+  document.querySelectorAll('.chapter-tab').forEach((t, i) => {
+    t.classList.toggle('active', i === index);
+  });
+  document.querySelectorAll('.masthead-nav a').forEach((a, i) => {
+    a.classList.toggle('active', i === index);
+  });
+  document.querySelector('#chapter-' + index).scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
 const reveals = document.querySelectorAll('.reveal');
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(e => {
-    if (e.isIntersecting) {
-      e.target.classList.add('visible');
-    }
+    if (e.isIntersecting) e.target.classList.add('visible');
   });
-}, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
+}, { threshold: 0.1 });
 reveals.forEach(el => observer.observe(el));
 
-// CHAPTER TRACKER + MOOD
-const sections = document.querySelectorAll('[data-chapter]');
-const pill = document.getElementById('chapter-label');
-const mood = document.getElementById('mood');
-
-const chapterObserver = new IntersectionObserver((entries) => {
-  entries.forEach(e => {
-    if (e.isIntersecting) {
-      const chapter = e.target.dataset.chapter;
-      const moodEmoji = e.target.dataset.mood;
-      if (chapter) pill.textContent = chapter;
-      if (moodEmoji) {
-        mood.textContent = moodEmoji;
-        mood.setAttribute('data-tip', chapter);
-      }
-    }
-  });
-}, { threshold: 0.3 });
-
-sections.forEach(s => chapterObserver.observe(s));
-
-// KINETIC COUNTING NUMBERS
-function animateCount(el, target, duration) {
-  const start = performance.now();
-  const startVal = 0;
-  const numStr = target.toString();
-  const hasComma = numStr.includes(',');
-  const numTarget = parseInt(numStr.replace(/,/g, ''));
-
-  const update = (time) => {
-    const elapsed = time - start;
-    const progress = Math.min(elapsed / duration, 1);
-    const eased = 1 - Math.pow(1 - progress, 3);
-    const current = Math.round(startVal + (numTarget - startVal) * eased);
-    el.textContent = current.toLocaleString();
-    if (progress < 1) requestAnimationFrame(update);
-  };
-
-  requestAnimationFrame(update);
-}
-
-const countEls = document.querySelectorAll('[data-count]');
-const countObserver = new IntersectionObserver((entries) => {
-  entries.forEach(e => {
-    if (e.isIntersecting) {
-      const target = e.target.dataset.count;
-      animateCount(e.target, target, 1800);
-      countObserver.unobserve(e.target);
-    }
-  });
-}, { threshold: 0.5 });
-
-countEls.forEach(el => countObserver.observe(el));
-
-// HERO STAGGER
 const heroEls = document.querySelectorAll('.hero .reveal');
 heroEls.forEach((el, i) => {
-  setTimeout(() => el.classList.add('visible'), 200 + i * 150);
+  setTimeout(() => el.classList.add('visible'), 150 + i * 120);
 });
 </script>
 </body>

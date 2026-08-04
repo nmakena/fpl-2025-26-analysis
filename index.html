@@ -37,7 +37,6 @@ body {
   overflow-x: hidden;
 }
 
-/* MASTHEAD */
 .masthead {
   background: var(--bg3);
   border-bottom: 3px solid var(--gold);
@@ -120,7 +119,6 @@ body {
 .tag-pill.orange { background: var(--orange); color: #fff; }
 .tag-pill.gold { background: var(--gold); color: var(--bg3); }
 
-/* TICKER */
 .ticker {
   background: var(--berry);
   padding: 9px 0;
@@ -149,7 +147,6 @@ body {
 
 @keyframes ticker { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
-/* HERO */
 .hero {
   display: grid;
   grid-template-columns: 1fr 320px;
@@ -285,7 +282,6 @@ body {
 .stat-badge.new { background: var(--orange); color: #fff; }
 .stat-badge.record { background: var(--gold); color: var(--bg3); }
 
-/* CHAPTER TABS */
 .chapter-tabs {
   background: var(--bg3);
   border-bottom: 1px solid var(--border);
@@ -302,7 +298,6 @@ body {
 }
 
 .chapter-tab:last-child { border-right: none; }
-
 .chapter-tab:hover { background: var(--bg2); }
 
 .chapter-tab.active {
@@ -342,7 +337,6 @@ body {
 .chapter-tab:hover .chapter-tab-desc,
 .chapter-tab.active .chapter-tab-desc { opacity: 1; }
 
-/* CHAPTER CONTENT SECTIONS */
 .chapter-section {
   display: none;
   animation: fadeIn 0.3s ease;
@@ -352,7 +346,6 @@ body {
 
 @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
 
-/* SECTION LAYOUT */
 .section-layout {
   display: grid;
   grid-template-columns: 1fr 280px;
@@ -428,7 +421,6 @@ body {
 .verdict-tag.slate { background: rgba(42,95,100,0.2); color: #5ecfda; border: 1px solid rgba(42,95,100,0.4); }
 .verdict-tag.berry { background: rgba(146,39,100,0.2); color: var(--crimson); border: 1px solid rgba(146,39,100,0.4); }
 
-/* CHART IFRAME CONTAINERS */
 .chart-frame {
   border: 1px solid var(--border);
   border-radius: 4px;
@@ -459,7 +451,6 @@ body {
   border-top: 1px solid var(--border2);
 }
 
-/* TWO COL GRID */
 .two-col {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -474,7 +465,6 @@ body {
   margin-top: 16px;
 }
 
-/* SIDEBAR */
 .section-sidebar {
   background: var(--bg2);
   padding: 24px 20px;
@@ -535,13 +525,11 @@ body {
 .insight-big.gold { color: var(--gold); }
 .insight-big.crimson { color: var(--crimson); }
 
-/* WIDE CHART (full width below grid) */
 .wide-chart {
   border-top: 1px solid var(--border);
   padding: 36px 40px;
 }
 
-/* STAT CARDS ROW */
 .stat-cards {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -598,7 +586,6 @@ body {
   font-weight: 300;
 }
 
-/* DIVIDERS */
 .section-divider {
   display: flex;
   align-items: center;
@@ -625,7 +612,6 @@ body {
   white-space: nowrap;
 }
 
-/* FOOTER */
 .site-footer {
   background: var(--bg3);
   border-top: 3px solid var(--gold);
@@ -637,8 +623,6 @@ body {
   gap: 24px;
   margin-top: 60px;
 }
-
-.footer-left {}
 
 .footer-wordmark {
   font-family: 'Playfair Display', serif;
@@ -669,7 +653,6 @@ body {
 
 .footer-right a { color: var(--gold); text-decoration: none; }
 
-/* COLOR STRIP */
 .color-strip {
   display: flex;
   height: 4px;
@@ -677,7 +660,6 @@ body {
 
 .color-strip div { flex: 1; }
 
-/* SCROLL REVEAL */
 .reveal {
   opacity: 0;
   transform: translateY(24px);
@@ -693,7 +675,6 @@ body {
 .reveal.from-right { transform: translateX(24px); }
 .reveal.visible { transform: translate(0); }
 
-/* RESPONSIVE */
 @media (max-width: 900px) {
   .hero { grid-template-columns: 1fr; }
   .hero-sidebar { display: none; }
@@ -876,17 +857,17 @@ body {
       <p class="section-deck">Four players broke 200 points — that has never happened in a single FPL season. Haaland edged Fernandes by four points for the crown. The gap between first and fifteenth tells you everything about how dominant the top end was.</p>
       <div class="verdict-tag gold">◆ 200+ club: 4 players · first time in FPL history</div>
       <div class="chart-frame">
-        <img src="charts/top15_scorers.png" alt="Top 15 FPL scorers 2025-26">
-        <div class="chart-label">Top 15 season scorers · total points GW1-38</div>
+        <iframe src="charts/top15_scorers_interactive.html" height="580"></iframe>
+        <div class="chart-label">Top 15 season scorers · total points GW1-38 · hover for details</div>
       </div>
       <div class="two-col" style="margin-top:20px;">
         <div class="chart-frame">
-          <img src="charts/value_picks.png" alt="Best value picks">
-          <div class="chart-label">Best value picks · points per £1m</div>
+          <iframe src="charts/value_picks_interactive.html" height="580"></iframe>
+          <div class="chart-label">Best value picks · points per £1m · hover for price and points</div>
         </div>
         <div class="chart-frame">
-          <img src="charts/defcon_leaders.png" alt="Defensive contribution leaders">
-          <div class="chart-label">DC leaders · new 2025-26 mechanic</div>
+          <iframe src="charts/defcon_interactive.html" height="620"></iframe>
+          <div class="chart-label">DC leaders · tackles, recoveries, clearances breakdown · hover for details</div>
         </div>
       </div>
     </div>
